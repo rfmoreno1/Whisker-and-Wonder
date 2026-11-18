@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Whisker &amp; Wonder — cozy T-shirts with whimsical designs that spread kindness for stray and rescued animals.">
+  <title>Home | Whisker &amp; Wonder</title>
+
+  <!-- Bootstrap 6 + brand fonts (Darumadrop One for headings, Nunito for everything else) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=product-title-20261118">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/site.js?v=accessibility-20261118" defer></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100" data-page="home">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ========== Part 1, Site Header ========== -->
+  <header class="site-header">
+    <nav class="navbar site-nav" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="index.html" class="navbar-brand brand" aria-label="Whisker and Wonder, home">
+          <img src="images/logo-compact-monochrome.png" width="220" height="220" alt="Whisker and Wonder">
+        </a>
+
+        <button id="nav-toggle" class="nav-toggle" type="button" aria-controls="site-links" aria-expanded="false" aria-label="Toggle navigation">
+          <span aria-hidden="true">☰</span>
+          <span class="mobile-menu-label">Menu</span>
+        </button>
+
+        <ul class="nav navbar-nav nav-links" id="site-links">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" data-nav="home" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#products" data-nav="shop">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about" data-nav="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html" data-nav="contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== Part 2, Main Content ========== -->
+  <main id="main-content" tabindex="-1" class="flex-grow-1">
+
+    <!-- Hero -->
+    <section class="hero-section container">
+      <div class="row hero-grid g-7 align-items-center">
+        <div class="md:col-7 hero-copy">
+          <p class="eyebrow">WELCOME, FRIEND!</p>
+          <h1>Woven with Wonder, Worn with Kindness.</h1>
+
+          <p>
+            At Whisker &amp; Wonder, we believe everyday fashion can inspire a little more
+            kindness. Through cozy T-shirts, whimsical designs, and our love for animals of
+            all shapes and sizes, we celebrate creativity while spreading compassion for
+            stray and rescued animals.
+          </p>
+          <p>
+            <strong>Ready to wear a little wonder?</strong> Explore our T-shirt collection,
+            find your favorite design, and place your order with us today. Let's make
+            kindness part of your everyday style—one tee at a time! 🐾
+          </p>
+          <p class="hero-tagline">Woven with Wonder, Worn with Kindness.</p>
+
+          <a href="#products" class="btn-solid theme-primary btn-primary-brand btn-large">
+            <img class="brand-icon" src="images/icon-shop.png" width="66" height="66" alt="" aria-hidden="true">
+            Shop Now
+          </a>
+        </div>
+
+        <div class="md:col-5">
+          <div class="hero-art">
+            <img src="images/visual-placeholder.svg" width="575" height="690" alt="Reserved homepage hero image area; artwork has not yet been selected">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured T-shirts -->
+    <section class="featured container" id="products" tabindex="-1" aria-labelledby="featured-title">
+      <div class="section-divider"></div>
+
+      <div class="featured-layout">
+        <div>
+          <h2 id="featured-title" class="section-heading">Featured T-Shirts</h2>
+
+          <div class="row g-7 product-grid">
+            <div class="md:col-4 product-col">
+              <article class="card product-card h-100">
+                <div class="product-card-image">
+                  <img src="images/product-placeholder.svg" width="320" height="320" loading="lazy" alt="Image placeholder for Don't Be Late Tee; final artwork is pending">
+                </div>
+                <div class="product-card-body">
+                  <h3>Don't Be Late Tee</h3>
+                  <p class="price-small">Php 499</p>
+                  <a class="product-card-link" href="dont-be-late.html" aria-label="View Details for Don't Be Late Tee">View Details <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+
+            <div class="md:col-4 product-col">
+              <article class="card product-card h-100">
+                <div class="product-card-image">
+                  <img src="images/product-placeholder.svg" width="320" height="320" loading="lazy" alt="Image placeholder for Everyday Comfort Tee; final artwork is pending">
+                </div>
+                <div class="product-card-body">
+                  <h3>Everyday Comfort Tee</h3>
+                  <p class="price-small">Php 499</p>
+                  <a class="product-card-link" href="everyday-comfort.html" aria-label="View Details for Everyday Comfort Tee">View Details <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+
+            <div class="md:col-4 product-col">
+              <article class="card product-card h-100">
+                <div class="product-card-image">
+                  <img src="images/product-placeholder.svg" width="320" height="320" loading="lazy" alt="Image placeholder for Do Good Work Tee; final artwork is pending">
+                </div>
+                <div class="product-card-body">
+                  <h3>Do Good Work Tee</h3>
+                  <p class="price-small">Php 499</p>
+                  <a class="product-card-link" href="do-good-work.html" aria-label="View Details for Do Good Work Tee">View Details <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- "More Than Just Tees" column -->
+        <aside class="brand-story" id="about" tabindex="-1">
+          <h2>More Than Just Tees</h2>
+          <p>
+            Inspired by the animals we love, we create heartfelt designs that spread
+            kindness, value awareness for stray and rescued animals, and inspire a more
+            compassionate world
+          </p>
+          <a href="contact.html" class="btn-outline theme-secondary btn-secondary-brand">
+            <img class="brand-icon" src="images/icon-phone.png" width="66" height="66" alt="" aria-hidden="true">
+            <span>Get in touch</span>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Part 3, Footer ========== -->
+  <footer class="site-footer mt-auto">
+    <div class="container footer-grid">
+
+      <div>
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#products">Shop</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Help &amp; Information</h2>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="contact.html#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <p class="copyright">© 2026 <a href="index.html">Whisker &amp; Wonder</a> · All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <!-- Bootstrap JavaScript -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+
+</body>
+</html>
