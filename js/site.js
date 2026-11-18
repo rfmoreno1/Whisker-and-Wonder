@@ -1,4 +1,3 @@
-/* jshint esversion: 6, browser: true */
 (() => {
   'use strict';
   const toggle = document.getElementById('nav-toggle');
@@ -34,11 +33,11 @@
     // Desktop shows the full policy; small screens start with collapsed sections.
     const mobilePolicy = window.matchMedia('(max-width: 767px)');
     const policySections = document.querySelectorAll('details.policy-item');
-    const setPolicyLayout = () => {
+    function setPolicyLayout() {
       policySections.forEach(section => { section.open = !mobilePolicy.matches; });
       const target = document.getElementById(location.hash.slice(1));
       if (target && target.matches('details.policy-item')) target.open = true;
-    };
+    }
     setPolicyLayout();
     mobilePolicy.addEventListener('change', setPolicyLayout);
     window.addEventListener('hashchange', () => {
@@ -94,3 +93,52 @@ ${message}`;
     function updateSubtotal() {
       const qty = Number(quantity.value);
       if (Number.isInteger(qty) && qty >= 1 && qty <= 20) {
+        if (subtotal) subtotal.textContent = '₱' + (Number(form.dataset.price) * qty).toLocaleString('en-PH');
+      } else if (subtotal) {
+        subtotal.textContent = '—';
+      }
+      minus.disabled = qty <= 1;
+      plus.disabled = qty >= 20;
+    }
+    minus.addEventListener('click', () => {
+      quantity.value = String(Math.max(1, Number(quantity.value || 1) - 1));
+      updateSubtotal();
+    });
+    plus.addEventListener('click', () => {
+      quantity.value = String(Math.min(20, Number(quantity.value || 1) + 1));
+      updateSubtotal();
+    });
+    quantity.addEventListener('input', updateSubtotal);
+    updateSubtotal();
+    form.addEventListener('submit', event=> {
+      event.preventDefault();
+      if (!validateOrShow(form,status)) return;
+      const chosenSize = form.querySelector('input[name="size"]:checked');
+      const qty = Number(quantity.value);
+      if (!chosenSize || !Number.isInteger(qty) || qty < 1 || qty > 20) {
+        status.textContent = 'Please choose a shirt size and a quantity from 1 to 20.';
+        return;
+      }
+      const product = form.dataset.product;
+      const unit = Number(form.dataset.price);
+      const total = unit * qty;
+      const body = `Hello Whisker & Wonder,
+
+I would like to inquire about ordering:
+Product: ${product}
+Size: ${chosenSize.value}
+Quantity: ${qty}
+Listed unit price: PHP ${unit}
+Listed subtotal (excluding shipping): PHP ${total}
+
+Please confirm stock availability, shipping cost, payment options, and next steps.
+
+Customer name:
+Delivery location:
+Contact information:
+
+Thank you!`;
+      openDraft('orders@examplewebsite142.com', `Whisker & Wonder order inquiry — ${product}`, body, status);
+    });
+  });
+})();
