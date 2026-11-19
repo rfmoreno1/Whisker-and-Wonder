@@ -999,3 +999,47 @@ body { font-size:var(--type-body); line-height:1.5; }
 .order-form .quantity-hint { margin-top:.5rem; }
 .contact-form-panel p.field-error,.contact-form-panel p.field-hint,.contact-form-panel p.required-note { font-size:var(--type-support); line-height:1.5; }
 @media (max-width:365px) { .footer-grid { grid-template-columns:minmax(0,1fr); } }
+
+/* Shared interactive feedback — navigation, calls to action and controls. */
+.site-header .brand,
+.site-header .nav-links a,
+.site-header .nav-toggle,
+.site-footer a,
+.btn-primary-brand,.btn-secondary-brand,
+.product-card-link,.catalog-link,.product-bottom a,.policy-toc a,
+.faq-item summary,.policy-item summary,
+.quantity-control button,.size-pill {
+  cursor:pointer;
+  transition:transform .25s ease-out,background-color .25s ease-out,
+    border-color .25s ease-out,box-shadow .25s ease-out,color .25s ease-out;
+}
+@media (hover:hover) and (pointer:fine) {
+  .site-header .brand:hover,
+  .site-header .nav-links a:hover,
+  .site-header .nav-toggle:hover,
+  .site-footer a:hover,
+  .btn-primary-brand:hover,.btn-secondary-brand:hover,
+  .product-card-link:hover,.catalog-link:hover,.product-bottom a:hover,
+  .policy-toc a:hover {
+    transform:translateY(-2px);
+  }
+  .btn-primary-brand:hover,.btn-secondary-brand:hover,.site-header .nav-toggle:hover {
+    box-shadow:0 3px 0 rgba(29,38,47,.18);
+  }
+}
+.site-header .brand:active,
+.site-header .nav-links a:active,
+.site-header .nav-toggle:active,
+.site-footer a:active,
+.btn-primary-brand:active,.btn-secondary-brand:active,
+.product-card-link:active,.catalog-link:active,.product-bottom a:active,
+.policy-toc a:active,.quantity-control button:active {
+  transform:translateY(1px);
+}
+button:disabled { cursor:not-allowed; transform:none; box-shadow:none; }
+@media (prefers-reduced-motion:reduce) {
+  .site-header .brand,.site-header .nav-links a,.site-header .nav-toggle,
+  .site-footer a,.btn-primary-brand,.btn-secondary-brand,
+  .product-card-link,.catalog-link,.product-bottom a,.policy-toc a,
+  .quantity-control button { transform:none !important; transition:none !important; }
+}
