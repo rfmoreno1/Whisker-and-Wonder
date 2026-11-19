@@ -41,8 +41,7 @@
 
     .shop-main {
       flex: 1 0 auto;
-      width: 100%;
-      padding: 82px 32px 48px;
+      padding-block: 48px;
       background: var(--ww-cream);
     }
 
@@ -52,7 +51,7 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      column-gap: clamp(36px, 7vw, 102px);
+      column-gap: clamp(36px, 7.6vw, 110px);
       row-gap: 48px;
     }
 
@@ -95,9 +94,9 @@
       margin: 0 0 14px;
       color: var(--ww-ink);
       font-family: "Darumadrop One", cursive;
-      font-size: clamp(1.6875rem, 2.7vw, 2.1875rem);
+      font-size: clamp(1.75rem, 2.4vw, 2rem);
       font-weight: 400;
-      line-height: 1.7;
+      line-height: 1.4;
       letter-spacing: .2px;
     }
 
@@ -118,12 +117,12 @@
     .product-price {
       margin: 0;
       color: var(--ww-ink);
-      font-size: 1.8125rem;
+      font-size: 1.875rem;
       font-weight: 600;
       line-height: 1.35;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
       .shop-main { padding-top: 58px; }
       .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -131,22 +130,23 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 767px) {
       .shop-main {
-        padding: 38px 22px 42px;
+        padding-block: 32px 42px;
       }
       .product-grid {
-        max-width: 390px;
+        max-width: none;
         grid-template-columns: 1fr;
-        gap: 38px;
+        gap: 32px;
       }
       .product-image { aspect-ratio: 0.9 / 1; }
       .product-name {
         margin-bottom: 5px;
-        font-size: 2rem;
+        font-size: clamp(1.625rem,7.95vw,1.9375rem);
         line-height: 1.4;
       }
-      .product-price { font-size: 1.5625rem; }
+      .product-price { font-size: 1.5rem; }
+      .product-size { font-size:1.125rem; }
     }
 
     /* Catalog title and result count share the product grid alignment. */
@@ -156,7 +156,7 @@
     }
     .shop-catalog-page .catalog-heading h1 {
       font-family:"Darumadrop One", "Nunito", sans-serif;
-      font-size:clamp(2.25rem,4vw,3.5rem);
+      font-size:clamp(2.25rem,calc(4.275vw - .126rem),3.5rem);
       font-weight:400; line-height:1.15;
       color:var(--ww-ink); margin:0 0 8px;
     }
@@ -164,9 +164,9 @@
       font-family:"Nunito", sans-serif; color:var(--ww-black);
       font-size:1.125rem; font-weight:700; line-height:1.4; margin:0;
     }
-    @media (max-width:640px) {
+    @media (max-width:767px) {
       .shop-catalog-page .shop-main { padding-top:32px; }
-      .shop-catalog-page .catalog-heading { max-width:390px; margin-bottom:24px; }
+      .shop-catalog-page .catalog-heading { max-width:none; margin-bottom:24px; }
       .shop-catalog-page .catalog-heading .catalog-results { font-size:1rem; }
     }
 
@@ -227,7 +227,7 @@
     </nav>
   </header>
 
-  <main id="main-content" class="shop-main flex-grow-1" tabindex="-1">
+  <main id="main-content" class="shop-main container flex-grow-1" tabindex="-1">
     <div class="catalog-heading">
       <h1 id="catalog-title">Featured T-Shirts</h1>
       <p class="catalog-results">Results: 3 items</p>
