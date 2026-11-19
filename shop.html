@@ -139,7 +139,7 @@
       margin: 0;
     }
 
-    .product-image-placeholder {
+    .product-image {
       display: block;
       width: 100%;
       aspect-ratio: 0.815 / 1;
@@ -150,14 +150,14 @@
       transition: background-color 160ms ease, border-color 160ms ease;
     }
 
-    .product-image-placeholder:hover {
+    .product-image:hover {
       background: rgba(41, 61, 81, .035);
       border-color: #172331;
     }
 
-    .product-image-placeholder:focus-visible,
+    .product-image:focus-visible,
     .product-name a:focus-visible {
-      outline: 3px solid var(--ww-gold);
+      outline: 3px solid var(--ww-black);
       outline-offset: 4px;
     }
 
@@ -236,7 +236,7 @@
     }
 
     .shop-catalog-page .footer-grid li a {
-      color: #263546;
+      color: var(--ww-black);
       font-size: 19px;
       font-weight: 500;
       text-decoration: none;
@@ -253,7 +253,7 @@
       margin: 13px 0 0;
       padding-top: 12px;
       border-top: 1px solid rgba(23, 35, 49, .8);
-      color: #263546;
+      color: var(--ww-black);
       font-size: 19px;
       line-height: 1.3;
       text-align: center;
@@ -294,7 +294,7 @@
         grid-template-columns: 1fr;
         gap: 38px;
       }
-      .product-image-placeholder { aspect-ratio: 0.9 / 1; }
+      .product-image { aspect-ratio: 0.9 / 1; }
       .product-name {
         margin-bottom: 5px;
         font-size: 32px;
@@ -337,6 +337,25 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; }
     }
+      /* Final artwork: consistent photo panels, full shirt visible without cropping. */
+    .product-image {
+      background:#fff;
+      border:0;
+      overflow:hidden;
+    }
+    .product-image img {
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+    .product-image:hover { background:#fff; }
+    @media (max-width:767px) {
+      .shop-catalog-page .nav-toggle { display:inline-flex; }
+      .shop-catalog-page .nav-links { display:none; flex-direction:column; align-items:stretch; gap:2px; }
+      .shop-catalog-page .nav-links.open { display:flex; }
+      .shop-catalog-page .nav-links .nav-link { font-size:1.25rem; }
+    }
   </style>
 </head>
 
@@ -373,21 +392,21 @@
     </div>
     <section class="product-grid" aria-labelledby="catalog-title">
       <article class="shop-product-card">
-        <a class="product-image-placeholder" href="dont-be-late.html" aria-label="View Don't Be Late Tee"></a>
+        <a class="product-image" href="dont-be-late.html"><img src="images/don%27t-be-late.png" width="1556" height="2000" loading="lazy" alt="Don’t Be Late Tee: white T-shirt with a golden clock and a blue bird wearing a red tie and carrying a briefcase."></a>
         <p class="product-size">XS - XL</p>
         <h2 class="product-name"><a href="dont-be-late.html">Don't Be Late Tee</a></h2>
         <p class="product-price">PHP 499</p>
       </article>
 
       <article class="shop-product-card">
-        <a class="product-image-placeholder" href="everyday-comfort.html" aria-label="View Everyday Comfort Tee"></a>
+        <a class="product-image" href="everyday-comfort.html"><img src="images/always-comfy.png" width="1556" height="2000" loading="lazy" alt="Everyday Comfort Tee: gray T-shirt with an orange cat tucked under a colorful patchwork quilt and the words Always Comfy!"></a>
         <p class="product-size">XS - XL</p>
         <h2 class="product-name"><a href="everyday-comfort.html">Everyday Comfort Tee</a></h2>
         <p class="product-price">PHP 499</p>
       </article>
 
       <article class="shop-product-card">
-        <a class="product-image-placeholder" href="do-good-work.html" aria-label="View Do Good Work Tee"></a>
+        <a class="product-image" href="do-good-work.html"><img src="images/do-good-work.png" width="1556" height="2000" loading="lazy" alt="Do Good Work Tee: black T-shirt with a rabbit wearing a green dress and the words Do Good Work!"></a>
         <p class="product-size">XS - XL</p>
         <h2 class="product-name"><a href="do-good-work.html">Do Good Work Tee</a></h2>
         <p class="product-price">PHP 499</p>
