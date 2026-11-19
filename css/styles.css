@@ -206,8 +206,8 @@ h1,h2,h3 { font-family:'Darumadrop One','Nunito',sans-serif; font-weight:400; }
 .order-hint { margin-top:12px; }
 .privacy-heading { background:var(--cream); padding:35px 0; }
 .privacy-hero { display:grid; grid-template-columns:minmax(0, 1fr) minmax(220px, 320px); gap:36px; align-items:center; }
-.privacy-image-slot { width:100%; aspect-ratio:16/11; border:2px dashed var(--navy); border-radius:12px; overflow:hidden; background:var(--cream); }
-.privacy-image-slot img { width:100%; height:100%; object-fit:cover; }
+.privacy-image-slot { width:100%; aspect-ratio:16/11; border:0; border-radius:12px; overflow:hidden; background:transparent; }
+.privacy-image-slot img { width:100%; height:100%; object-fit:contain; }
 .privacy-heading h1 { font-family:'Darumadrop One','Nunito',sans-serif; font-size:clamp(3rem,5vw,5rem); font-weight:400; margin:12px 0 2px; }
 .privacy-heading h2 { font-family:'Darumadrop One','Nunito',sans-serif; font-size:1.9rem; margin:0 0 10px; }
 .privacy-heading p { max-width:770px; }
