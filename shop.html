@@ -312,6 +312,27 @@
       .shop-catalog-page .copyright { font-size: 14px; }
     }
 
+    /* Catalog title and result count share the product grid alignment. */
+    .shop-catalog-page .shop-main { padding-top:48px; }
+    .shop-catalog-page .catalog-heading {
+      width:100%; max-width:1272px; margin:0 auto 24px;
+    }
+    .shop-catalog-page .catalog-heading h1 {
+      font-family:"Darumadrop One", "Nunito", sans-serif;
+      font-size:clamp(2.25rem,4vw,3.5rem);
+      font-weight:400; line-height:1.15;
+      color:var(--ww-ink); margin:0 0 8px;
+    }
+    .shop-catalog-page .catalog-heading .catalog-results {
+      font-family:"Nunito", sans-serif; color:var(--ww-black);
+      font-size:1.125rem; font-weight:700; line-height:1.4; margin:0;
+    }
+    @media (max-width:640px) {
+      .shop-catalog-page .shop-main { padding-top:32px; }
+      .shop-catalog-page .catalog-heading { max-width:390px; margin-bottom:24px; }
+      .shop-catalog-page .catalog-heading .catalog-results { font-size:1rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; }
@@ -346,7 +367,11 @@
   </header>
 
   <main id="main-content" class="shop-main flex-grow-1" tabindex="-1">
-    <section class="product-grid" aria-label="Whisker and Wonder T-shirt collection">
+    <div class="catalog-heading">
+      <h1 id="catalog-title">Featured T-Shirts</h1>
+      <p class="catalog-results">Results: 3 items</p>
+    </div>
+    <section class="product-grid" aria-labelledby="catalog-title">
       <article class="shop-product-card">
         <a class="product-image-placeholder" href="dont-be-late.html" aria-label="View Don't Be Late Tee"></a>
         <p class="product-size">XS - XL</p>
