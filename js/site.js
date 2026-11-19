@@ -1,3 +1,4 @@
+/* jshint esversion: 6, browser: true */
 (() => {
   'use strict';
   const toggle = document.getElementById('nav-toggle');
@@ -26,7 +27,7 @@
   }
   const page = document.body.dataset.page;
   if (page === 'shop' && document.querySelector('.product-page')) {
-    document.querySelectorAll('[data-nav="shop"]').forEach(a => a.setAttribute('aria-current','page'));
+    document.querySelectorAll('[data-nav="shop"]').forEach(a => a.setAttribute('aria-current','location'));
   }
   if (page === 'privacy') {
     document.querySelectorAll('[data-nav]').forEach(a => a.removeAttribute('aria-current'));
@@ -57,12 +58,54 @@
     }
     window.location.href = mailto;
   }
+  // Identify individual errors in text and associate them with the relevant controls.
+  function clearErrors(form) {
+    form.querySelectorAll('.field-error').forEach(error => error.remove());
+    form.querySelectorAll('[aria-invalid]').forEach(control => {
+      control.removeAttribute('aria-invalid');
+      const ids = (control.getAttribute('aria-describedby') || '').split(' ').filter(id => id && !id.startsWith('error-'));
+      if (ids.length) control.setAttribute('aria-describedby', ids.join(' '));
+      else control.removeAttribute('aria-describedby');
+    });
+  }
+  function addError(form, controls, message) {
+    const control = controls[0];
+    const error = document.createElement('p');
+    error.className = 'field-error';
+    error.id = 'error-' + (control.id || control.name);
+    error.textContent = message;
+    const anchor = control.type === 'radio' ? form.querySelector('.size-list') : control.closest('.order-action-row') || control;
+    anchor.insertAdjacentElement('afterend', error);
+    controls.forEach(item => {
+      item.setAttribute('aria-invalid', 'true');
+      item.setAttribute('aria-describedby', ((item.getAttribute('aria-describedby') || '') + ' ' + error.id).trim());
+    });
+  }
   function validateOrShow(form, status) {
-    if (form.checkValidity()) return true;
-    form.reportValidity();
-    const firstInvalid = form.querySelector(':invalid');
-    if (firstInvalid) firstInvalid.focus();
-    if (status) status.textContent = 'Please complete the required fields correctly before continuing.';
+    clearErrors(form);
+    const bad = [];
+    const radios = Array.from(form.querySelectorAll('input[name="size"]'));
+    if (radios.length && !radios.some(radio => radio.checked)) {
+      addError(form, radios, 'Choose a T-shirt size.'); bad.push(radios[0]);
+    }
+    Array.from(form.querySelectorAll('input:not([type="radio"]), textarea')).forEach(control => {
+      let message = '';
+      const value = control.value.trim();
+      if (control.name === 'quantity') {
+        const qty = Number(value);
+        if (!value || !Number.isInteger(qty) || qty < 1 || qty > 20) message = 'Enter a whole number from 1 to 20.';
+      } else if (control.name === 'email' && (!value || !control.validity.valid)) {
+        message = 'Enter a valid email address, such as you@example.com.';
+      } else if (control.name === 'message' && value.length < 10) {
+        message = 'Enter a message of at least 10 characters.';
+      } else if (control.required && !value) {
+        message = control.name === 'name' ? 'Enter your name.' : 'Enter a subject.';
+      }
+      if (message) { addError(form, [control], message); bad.push(control); }
+    });
+    if (!bad.length) { if (status) status.textContent = ''; return true; }
+    if (status) status.textContent = 'Please correct the highlighted fields before continuing.';
+    bad[0].focus();
     return false;
   }
   const contact = document.getElementById('contact-form');
@@ -74,7 +117,6 @@
     const email = contact.elements.namedItem('email').value.trim();
     const subject = contact.elements.namedItem('subject').value.trim();
     const message = contact.elements.namedItem('message').value.trim();
-    if (!name || !subject || message.length < 10) { status.textContent='Please complete all required fields.'; return; }
     const body = `Name: ${name}
 Reply-to email: ${email}
 
@@ -90,7 +132,7 @@ ${message}`;
     const plus = form.querySelector('.quantity-plus');
 
     // Show the current subtotal as the customer changes quantity.
-    function updateSubtotal() {
+    const updateSubtotal = function () {
       const qty = Number(quantity.value);
       if (Number.isInteger(qty) && qty >= 1 && qty <= 20) {
         if (subtotal) subtotal.textContent = '₱' + (Number(form.dataset.price) * qty).toLocaleString('en-PH');
@@ -99,7 +141,7 @@ ${message}`;
       }
       minus.disabled = qty <= 1;
       plus.disabled = qty >= 20;
-    }
+    };
     minus.addEventListener('click', () => {
       quantity.value = String(Math.max(1, Number(quantity.value || 1) - 1));
       updateSubtotal();
