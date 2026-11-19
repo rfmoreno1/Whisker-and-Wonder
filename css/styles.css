@@ -971,8 +971,8 @@ body { font-size:var(--type-body); line-height:1.5; }
 
 /* Final accessibility refinements: readable links, clear feedback and reflow. */
 .site-header .nav-links a:hover,.site-header .nav-links a:focus-visible { opacity:1; }
-.site-footer li a { min-height:44px; min-width:44px; display:inline-flex; align-items:center; text-decoration:underline; text-underline-offset:.15em; }
-.site-footer li a[aria-current="page"] { font-weight:800; }
+.site-footer li a { min-height:44px; min-width:44px; display:inline-flex; align-items:center; font-weight:400; text-decoration:underline; text-underline-offset:.15em; }
+.site-footer li a[aria-current="page"] { font-weight:400; }
 .product-card-link,.product-bottom a { text-decoration:underline; text-underline-offset:.15em; }
 .faq-item a { color:var(--cream); text-decoration:underline; overflow-wrap:anywhere; }
 .faq-item a:focus-visible { outline-color:var(--mustard); }
