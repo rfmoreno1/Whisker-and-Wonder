@@ -1064,3 +1064,11 @@ button:disabled { cursor:not-allowed; transform:none; box-shadow:none; }
 @media (max-width:767px) {
   .contact-intro.row > div { padding-inline:0; }
 }
+
+/* The 390px mockups use a 20px content gutter on each side. */
+@media (max-width:767px) {
+  .container { width:100%; padding-inline:1.25rem; }
+  .privacy-hero { padding-inline:1.25rem; }
+  .privacy-hero::after { left:1.25rem; right:1.25rem; }
+  .hero-copy h1 { font-size:clamp(1.75rem,9.23vw,var(--type-h1)); }
+}
