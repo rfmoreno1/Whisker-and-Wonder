@@ -71,3 +71,26 @@ body[data-page="home"] .brand-story h2 { margin:0 0 1.75rem; }
 .site-footer .copyright a { display:inline; min-height:0; min-width:0; padding:0; font:inherit; color:inherit; text-decoration:none; cursor:pointer; }
 .site-footer .copyright a:hover,
 .site-footer .copyright a:focus-visible { text-decoration:underline; }
+
+/* Final homepage artwork: fill the existing hero area while cropping only
+   transparent side margins from the original landscape PNG. */
+body[data-page="home"] .hero-art {
+  border:0;
+  border-radius:0;
+  background:transparent;
+  overflow:hidden;
+}
+body[data-page="home"] .hero-art img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+@media (max-width:767px) {
+  body[data-page="home"] .hero-art {
+    aspect-ratio:5/4;
+    max-width:350px;
+    max-height:none;
+  }
+}
