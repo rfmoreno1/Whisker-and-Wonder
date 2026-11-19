@@ -205,9 +205,9 @@ h1,h2,h3 { font-family:'Darumadrop One','Nunito',sans-serif; font-weight:400; }
 .order-subtotal small { font-size:.9rem; }
 .order-hint { margin-top:12px; }
 .privacy-heading { background:var(--cream); padding:35px 0; }
-.privacy-hero { display:grid; grid-template-columns:minmax(0, 1fr) minmax(220px, 320px); gap:36px; align-items:center; }
-.privacy-image-slot { width:100%; aspect-ratio:16/11; border:0; border-radius:12px; overflow:hidden; background:transparent; }
-.privacy-image-slot img { width:100%; height:100%; object-fit:contain; }
+.privacy-hero { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 36%); gap:32px; align-items:center; }
+.privacy-image-slot { width:100%; max-width:440px; aspect-ratio:4/3; justify-self:center; border:0; border-radius:0; overflow:hidden; background:transparent; }
+.privacy-image-slot img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
 .privacy-heading h1 { font-family:'Darumadrop One','Nunito',sans-serif; font-size:clamp(3rem,5vw,5rem); font-weight:400; margin:12px 0 2px; }
 .privacy-heading h2 { font-family:'Darumadrop One','Nunito',sans-serif; font-size:1.9rem; margin:0 0 10px; }
 .privacy-heading p { max-width:770px; }
@@ -240,7 +240,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .site-header .brand img { width:140px; height:140px; }
   .nav-links { background:var(--cream); flex-direction:column; }
   .privacy-hero { display:block; }
-  .privacy-image-slot { max-width:320px; margin-top:24px; }
+  .privacy-image-slot { max-width:300px; margin:18px auto 0; }
   .privacy-intro { grid-template-columns:1fr; }
   .policy-toc { position:static; }
   .product-info { padding-left:0; }
@@ -360,7 +360,7 @@ body { background: var(--cream); color:var(--navy); font-size:1.5rem; line-heigh
   .privacy-hero { padding:22px; border-radius:16px; }
   .privacy-heading .mini-label,.privacy-heading .policy-updated { font-size:1rem; }
   .privacy-heading p { font-size:1.25rem; overflow-wrap:anywhere; }
-  .privacy-image-slot { max-width:none; }
+  .privacy-image-slot { max-width:300px; }
   .privacy-page { padding-top:30px; }
   .policy-toc h2 { padding:16px 20px; }
   .policy-toc ol { font-size:1.125rem; padding:14px 20px 18px 40px; }
