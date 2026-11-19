@@ -83,7 +83,7 @@ h1,h2,h3,p{margin-top:0}
 .contact-form-panel form>div{margin-bottom:17px}
 .two-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-feedback{font-size:.98rem;margin-top:14px;min-height:24px;color:#344454;font-weight:700}
-.faq-section{background:#414141;color:#fff;border-radius:10px;overflow:hidden;padding:30px 36px 34px;max-width:1160px;margin:0 auto}
+.faq-section{background:#414141;color:#fff;border-radius:10px;overflow:hidden;padding:30px 36px 34px;max-width:none;margin:0 auto}
 .faq-section>h2{font-size:3rem;margin:-30px -36px 14px;padding:22px 36px 17px;border-bottom:2px solid #fff;background:#414141}
 .faq-disclaimer{font-size:.91rem;opacity:.9;border-left:3px solid var(--mustard);padding:5px 12px;margin:15px 0}
 .faq-item{padding:11px 0;border-bottom:1px solid #777}
@@ -406,7 +406,7 @@ body { background: var(--cream); color:var(--navy); font-size:1.5rem; line-heigh
 .faq-item p { color:var(--cream); margin-top:0; }
 .faq-item summary:focus-visible { outline-color:var(--mustard); }
 .contact-form-panel {
-  margin:42px auto 0; max-width:1160px;
+  margin:42px auto 0; max-width:none;
   /* Mustard panel with darker navy text: 6.76:1 contrast. */
   background:var(--mustard); color:var(--ink); border-color:var(--ink);
 }
@@ -1055,4 +1055,12 @@ button:disabled { cursor:not-allowed; transform:none; box-shadow:none; }
 @media (hover:none) {
   .site-header .nav-links a:hover { border-bottom-color:transparent; }
   .site-footer a:hover,.product-card-link:hover,.catalog-link:hover .catalog-name { text-decoration:none; }
+}
+
+/* Shared page grid: contact and privacy use the same content gutters as the header. */
+.contact-intro.row > :first-child { padding-inline-start:0; }
+.privacy-hero { padding-inline:calc(var(--bs-gutter-x,1.5rem) / 2); border-bottom:0; position:relative; }
+.privacy-hero::after { content:""; position:absolute; bottom:0; left:calc(var(--bs-gutter-x,1.5rem) / 2); right:calc(var(--bs-gutter-x,1.5rem) / 2); border-bottom:2px solid var(--sage); }
+@media (max-width:767px) {
+  .contact-intro.row > div { padding-inline:0; }
 }
