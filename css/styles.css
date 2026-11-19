@@ -768,3 +768,183 @@ body { font-size:var(--type-body); line-height:1.5; }
   .product-heading .mini-label { font-size:clamp(1rem,calc(4.6vw - .092rem),var(--type-support)); }
   .product-heading h1 { font-size:clamp(1.375rem,calc(9vw - .18rem),var(--type-h1)); }
 }
+
+/* Whisker & Wonder — Full Product Page (Shop).
+   Merged into shared styles.css. Catalog-specific rules only. */
+
+.shop-catalog {
+  width: min(100% - 2.8rem, 1270px);
+  padding: clamp(2rem, 2.8vw, 2.5rem) 0 clamp(3rem, 5.6vw, 5rem);
+  margin-inline: auto;
+}
+
+.catalog-results {
+  color: var(--ink);
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 1.125rem;
+}
+
+.catalog-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 350px));
+  justify-content: space-between;
+  align-items: start;
+  gap: 2.5rem clamp(1.25rem, 5vw, 6.5rem);
+  margin: 0;
+  padding: 0;
+}
+
+.catalog-item {
+  min-width: 0;
+}
+
+.catalog-link {
+  display: block;
+  color: var(--navy);
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+.catalog-image {
+  width: 100%;
+  aspect-ratio: 350 / 429;
+  background: var(--cream);
+  border: 2px dashed var(--navy);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.catalog-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.catalog-sizes {
+  color: var(--ink);
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: var(--type-support, 1.25rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 1rem 0 0;
+}
+
+.catalog-name {
+  color: var(--navy);
+  font-family: 'Darumadrop One', 'Nunito', sans-serif;
+  font-size: clamp(1.875rem, 3vw, 2.6875rem);
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0 0 0.75rem;
+  overflow-wrap: normal;
+}
+
+.catalog-price {
+  color: var(--navy);
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: clamp(1.5rem, 2.1vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.catalog-link:hover,
+.catalog-link:focus-visible {
+  color: var(--navy);
+}
+
+.catalog-link:hover .catalog-name,
+.catalog-link:focus-visible .catalog-name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.catalog-link:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 5px;
+}
+
+/* Match the original 1440px desktop frame, including the shared header
+   and compact, two-column footer, without changing the other pages. */
+@media (min-width: 1024px) {
+  .shop-page .site-header .nav-inner,
+  .shop-page .site-footer .footer-grid {
+    width: min(100% - 2.8rem, 1270px);
+    padding-inline: 0;
+  }
+  .shop-page .site-header .site-nav {
+    min-height: 109px;
+    padding-block: 0;
+  }
+  .shop-page .site-header .brand {
+    width: 150px;
+    height: 95px;
+  }
+  .shop-page .site-header .brand img {
+    width: 160px;
+    height: 160px;
+  }
+  .shop-page .site-header .nav-links {
+    gap: clamp(1.5rem, 3.5vw, 3.25rem);
+  }
+  .shop-page .site-footer {
+    border-top-width: 5px;
+    padding: 1.625rem 0 1rem;
+  }
+  .shop-page .footer-grid {
+    gap: 0.875rem 2.5rem;
+  }
+  .shop-page .site-footer h2 {
+    margin: 0 0 0.625rem;
+    line-height: 1.4;
+  }
+  .shop-page .site-footer a {
+    min-height: 27px;
+    padding: 0;
+    line-height: 1.35;
+  }
+  .shop-page .site-footer .copyright {
+    padding-top: 0.75rem;
+  }
+}
+
+/* Tablet: two columns, with fluid image sizing. */
+@media (max-width: 1023px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+  }
+}
+
+/* Mobile: one card per row, with no desktop-only negative space. */
+@media (max-width: 767px) {
+  .shop-catalog {
+    width: calc(100% - 2rem);
+    padding: 1.5rem 0 2.5rem;
+  }
+  .catalog-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .catalog-results {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .catalog-name {
+    font-size: clamp(1.5rem, 6.4vw, 2rem);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .catalog-sizes {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+  }
+  .catalog-price {
+    font-size: 1.375rem;
+  }
+}
