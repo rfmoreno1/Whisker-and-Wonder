@@ -94,3 +94,31 @@ body[data-page="home"] .hero-art img {
     max-height:none;
   }
 }
+
+/* Responsive hero order: heading, illustration, then the full copy and CTA.
+   Desktop preserves the two-column composition; smaller screens stack. */
+body[data-page="home"] .hero-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);
+  grid-template-areas:"heading visual" "copy visual";
+  column-gap:clamp(1.5rem,3vw,3rem);
+  row-gap:0;
+  align-items:start;
+  width:100%;
+}
+body[data-page="home"] .hero-heading { grid-area:heading; align-self:end; min-width:0; padding:0; }
+body[data-page="home"] .hero-body { grid-area:copy; align-self:start; min-width:0; padding:0; }
+body[data-page="home"] .hero-visual { grid-area:visual; align-self:center; min-width:0; width:100%; }
+@media (max-width:1050px) {
+  body[data-page="home"] .hero-grid {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"heading" "visual" "copy";
+    gap:0;
+  }
+  body[data-page="home"] .hero-heading h1 { margin-bottom:0; }
+  body[data-page="home"] .hero-visual { margin:1.25rem 0 1.5rem; }
+  body[data-page="home"] .hero-art { margin:0 auto; max-width:400px; aspect-ratio:5/4; max-height:none; }
+}
+@media (max-width:767px) {
+  body[data-page="home"] .hero-art { max-width:350px; }
+}
